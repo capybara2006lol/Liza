@@ -2,11 +2,41 @@ import React from 'react';
 import { TeamMember } from '../types';
 
 const team: TeamMember[] = [
-  { id: 1, name: "Александра П.", role: "CEO / Основатель", description: "Видение, стратегия, развитие продукта.", image: "https://picsum.photos/200/200?random=10" },
-  { id: 2, name: "Михаил К.", role: "CTO", description: "Разработка платформы, техническая архитектура.", image: "https://picsum.photos/200/200?random=11" },
-  { id: 3, name: "Дарья С.", role: "UX/UI-дизайнер", description: "Создание интерфейсов, дизайн приложения.", image: "https://picsum.photos/200/200?random=12" },
-  { id: 4, name: "Илья Р.", role: "Product Manager", description: "Функциональность, фичи, тестирование.", image: "https://picsum.photos/200/200?random=13" },
-  { id: 5, name: "Виктория Л.", role: "Маркетолог", description: "Продвижение, коммуникации, работа с аудиторией.", image: "https://picsum.photos/200/200?random=14" },
+  { 
+    id: 1, 
+    name: "Валиева Айгюн", 
+    role: "Тимлид / Project Manager", 
+    description: "Роль: управление проектом, координация команды. Отвечает за: планирование, постановку задач, контроль сроков, коммуникацию и развитие концепции EcoLink.", 
+    image: "/images/team/member1.jpg" 
+  },
+  { 
+    id: 2, 
+    name: "Шутикова Елизавета", 
+    role: "Дизайнер & Программист (UI/UX + Front-end)", 
+    description: "Роль: визуальная часть и разработка сайта. Отвечает за: дизайн интерфейсов, создание лого, прототипы, верстку, реализацию основных страниц сайта и функционала MVP.", 
+    image: "/images/team/member3.jpg" 
+  },
+  { 
+    id: 3, 
+    name: "Хайдаров Шерзод", 
+    role: "Финансист", 
+    description: "Роль: финансовое планирование и расчёты. Отвечает за: финансовую модель, прогнозы расходов, расчёт unit-экономики, стратегии монетизации и бюджет проекта.", 
+    image: "/images/team/member2.jpg" 
+  },
+  { 
+    id: 4, 
+    name: "Шукуруллаева Шахзода", 
+    role: "Менеджер по партнёрствам", 
+    description: "Роль: развитие сети EcoLink и привлечение организаций. Отвечает за: переговоры с пунктами приёма, школами, магазинами и компаниями, расширение партнёрской экосистемы.", 
+    image: "/images/team/member5.jpg" 
+  },
+  { 
+    id: 5, 
+    name: "Махмуджонов Рустам", 
+    role: "Специалист по экоконтенту", 
+    description: "Роль: создание материалов и популяризация проекта. Отвечает за: образовательный контент, ведение соцсетей, эко-челленджи, обучающие материалы по сортировке отходов.", 
+    image: "/images/team/member4.jpg" 
+  },
 ];
 
 export const Team: React.FC = () => {
@@ -15,20 +45,20 @@ export const Team: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl lg:text-4xl font-display font-bold text-eco-dark mb-12 text-center">Команда проекта</h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
           {team.map((member) => (
-            <div key={member.id} className="text-center group">
-              <div className="relative mx-auto w-32 h-32 mb-4">
+            <div key={member.id} className="text-center group flex flex-col items-center">
+              <div className="relative w-32 h-32 mb-4 shrink-0">
                  <div className="absolute inset-0 bg-eco-light rounded-full transform rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
                  <img 
                    src={member.image} 
                    alt={member.name} 
-                   className="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-md grayscale group-hover:grayscale-0 transition-all duration-300"
+                   className="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-md group-hover:scale-105 transition-all duration-300 bg-gray-50"
                  />
               </div>
-              <h3 className="font-bold text-lg text-eco-dark">{member.name}</h3>
-              <p className="text-eco-primary text-sm font-medium mb-2">{member.role}</p>
-              <p className="text-gray-500 text-xs leading-relaxed max-w-[150px] mx-auto">{member.description}</p>
+              <h3 className="font-bold text-lg text-eco-dark leading-tight mb-1">{member.name}</h3>
+              <p className="text-eco-primary text-xs font-bold mb-3 min-h-[2.5rem] flex items-center justify-center text-center leading-tight px-1 uppercase tracking-wide">{member.role}</p>
+              <p className="text-gray-500 text-xs leading-relaxed max-w-[240px]">{member.description}</p>
             </div>
           ))}
         </div>
